@@ -1,2 +1,1 @@
-# pokemonInfo
-it is pokemon info searcher  app 
+## used [api](pokeapi.co)

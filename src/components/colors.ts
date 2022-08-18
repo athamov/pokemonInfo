@@ -8,7 +8,7 @@ export const colors:StringByString = {
   electric: ["bg-blue-600","bg-blue-200"," text-blue-700"],
   water: ["bg-sky-600","bg-sky-200"," text-sky-700"],
   ground: ["bg-amber-600","bg-amber-200"," text-amber-700"],
-  rock: ["bg-stone-600","bg-stone-600"," text-stone-700"],
+  rock: ["bg-stone-600","bg-stone-200"," text-stone-700"],
   fairy: ["bg-fuchsia-600","bg-fuchsia-200"," text-fuchsia-700"],
   poison: ["bg-lime-600","bg-lime-200"," text-lime-700"],
   bug: ["bg-yellow-600","bg-yellow-200"," text-yellow-700"],
@@ -17,4 +17,7 @@ export const colors:StringByString = {
   flying: ["bg-teal-600","bg-teal-200"," text-teal-700"],
   fighting: ["bg-red-600","bg-red-200"," text-red-700"],
   normal: ["bg-neutral-600","bg-neutral-200"," text-neutral-700"],
+  dark:["bg-stone-600","bg-green-400"," bg-orange-700"],
+  steel:["bg-green-600","bg-stone-200"," text-stone-600"],
+  ice:["bg-teal-500","bg-cyan-200"," text-blue-900"]
 };

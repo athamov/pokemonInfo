@@ -43,8 +43,8 @@ const InfoCard:React.FC<IProps> = ( props:IProps ) =>{
 
   return (
     <article className="overflow-hidden rounded-lg shadow-lg">
-      <div className="relative w-24 h-24 mx-auto">
-        <img className="rounded-full border border-gray-100 shadow-sm" src={pokeData?.sprites.front_shiny} alt={pokeData?.name} />
+      <div className="relative w-48 h-48 mx-auto">
+        <img className=" w-48 h-48 shadow-sm" src={pokeData?.sprites.other?.dream_world.front_default} alt={pokeData?.name} />
         <div className={"absolute top-0 right-0 h-6 w-6 my-1 border-4 border-white rounded-full z-2 " + typeColor?.[0]}></div>
       </div>
       <div className={"rounded-t-lg " + typeColor?.[0]}>
@@ -54,12 +54,22 @@ const InfoCard:React.FC<IProps> = ( props:IProps ) =>{
         }}>
         <header className={"items-center justify-between leading-tight p-2 md:p-4 drop-shadow-md hover:drop-shadow-xl " + typeColor?.[1] + typeColor?.[2]}>
           <h5 className="text-lg mb-3 text-center">{pokeData?.name}</h5>
-          <p className="text-grey-darker text-sm text-right">
-            hp/attack/defense/special-attack/special-defense/speed
+          <div className="text-gray-darker flex flex-1">
+          <p className="text-grey-darker text-sm text-left w-1/3">
+            hp: <strong>{stats[0]}</strong>
+            <br />
+            xp: <strong>{stats[1]}</strong>
+            <br />
+            defense: <strong>{stats[2]}</strong>
           </p>
-          <p className="text-grey-darker text-sm text-right">
-            {stats[0]+" / "+stats[1]+" / "+stats[2]+" / "+stats[3]+" / "+stats[4]+" / "+stats[5]}
+          <p className="text-grey-darker text-sm text-right w-2/3">
+            special-attack: <strong>{stats[3]}</strong>
+            <br />
+            special-defense:<strong>{stats[4]}</strong>
+            <br />
+            speed: <strong>{stats[5]}</strong>
           </p>
+          </div>
         </header>
           <div className="flex items-center justify-between leading-none p-2 md:p-4 drop-shadow-md">
             <span className="ml-2 text-sm text-white">{pokeType[0]}</span>

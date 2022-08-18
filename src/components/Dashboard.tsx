@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense}  from 'react'
 import { Link } from 'react-router-dom'
 import { PokemonClient } from 'pokenode-ts';
 import { NamedAPIResource } from '../interface/NamedAPIResource'
-import InfoCard from './InfoCard'
+import InfoCard from './InfoCard';
+import Loader from './Loader'
 
 const Dashboard = ()=> {
   const [pokeList, setPokeList] = useState<NamedAPIResource[]>([]);
@@ -43,7 +44,7 @@ const Dashboard = ()=> {
 
   return (
     <>
-    <div className="container my-12 mx-auto px-4 md:px-12" id="pokelist">
+    <div className="container my-12 mx-auto px-4 md:px-12 font-zen-antique" id="pokelist">
       <form id="search">   
         <label htmlFor="defaultSearch" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
         <div className="relative">
@@ -61,8 +62,12 @@ const Dashboard = ()=> {
             </Link>
         </div>
       </form> 
-      <ul className="flex flex-wrap -mx-1 lg:-mx-3">
-      {pokeList?.map(( pokemon ) => <li key={pokemon.name} className="my-1 px-1 w-full md:justify-center md:w-96 lg:my-4 lg:px-4 lg:w-1/2"> <InfoCard pokemon={pokemon.name}/> </li> )}
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {pokeList?.map(( pokemon ) => 
+      <Suspense fallback={<Loader />} >
+        <li key={pokemon.name} className="my-1 px-1 w-full md:justify-cente lg:my-4 lg:px-4 lg:w-full"> <InfoCard pokemon={pokemon.name}/> </li>
+      </Suspense>
+       )}
     </ul>
     </div>
     </>

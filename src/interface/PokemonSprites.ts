@@ -1,3 +1,9 @@
+interface othersSprites {
+  dream_world:PokemonSprites;
+  home:PokemonSprites;
+  official_artwork:PokemonSprites
+}
+
 export interface PokemonSprites {
   /** The default depiction of this Pokémon from the front in battle */
   front_default: string;
@@ -15,4 +21,6 @@ export interface PokemonSprites {
   back_female: string;
   /** The shiny female depiction of this Pokémon from the back in battle */
   back_shiny_female: string;
+
+  other?:othersSprites;
 }

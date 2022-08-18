@@ -5,6 +5,9 @@ module.exports = {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    fontFamily: {
+      'zen-antique':['"Permanent Marker"','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif']
+    },
     extend: {
       spacing: {
       '128': '32rem',

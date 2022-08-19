@@ -2,14 +2,10 @@ import React,{ useState, useEffect} from 'react'
 import { PokemonClient } from 'pokenode-ts';
 import { Pokemon } from '../interface/IPokemon'
 import { useLocation,Link } from 'react-router-dom'
-import { colors } from './colors'
 import './infoPage.css'
 
 const InfoPage:React.FC = () => {
   const [pokeData, setPokeData] = useState<Pokemon>();
-  const [pokeType,setPokeType] = useState<string[]>([]);
-  const [typeColor,setTypeColor] = useState<string[]>([])
-  const [stats,setStats] = useState<number[]>([])
   const location = useLocation();  
 
   useEffect(() =>{
@@ -17,17 +13,6 @@ const InfoPage:React.FC = () => {
     if(!pokeData) fetchPokemonData(name)
   },[pokeData,location])
 
-  useEffect(() =>{
-    if(pokeData) {
-      setPokeType(pokeData.types.map(type => type.type.name));
-      setStats(pokeData.stats.map(stat => stat.base_stat));
-      console.log(pokeData);
-    }
-  },[pokeData]);
-
-  useEffect(() =>{
-    if(pokeType) setTypeColor(colors[pokeType[0]])
-  },[pokeType])
 
   const fetchPokemonData = async (request:string) => {
     const api = new PokemonClient();

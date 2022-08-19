@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense}  from 'react'
+import { useState, useEffect, Suspense}  from 'react'
 import { Link } from 'react-router-dom'
 import { PokemonClient } from 'pokenode-ts';
 import { NamedAPIResource } from '../interface/NamedAPIResource'
@@ -25,6 +25,7 @@ const Dashboard = ()=> {
         setIsFetching(false);
       })
     }
+    // 
   },[isFetching])
 
   const onScroll=(e:any)=>{
